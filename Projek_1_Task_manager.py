@@ -40,8 +40,8 @@ def hlavni_menu():
                 print("Seznam úkolů:")
                 for index, (novy_ukol, popis_ukolu) in enumerate(ukoly, start=1):
                     print(f"{index}. {novy_ukol}: {popis_ukolu}")
-#            else:
-#               print("Žádné úkoly k zobrazení.")
+            else:
+                print("Žádné úkoly k zobrazení.")
 
 
         elif volba == '3':
@@ -49,14 +49,28 @@ def hlavni_menu():
                 print("Seznam úkolů:")
                 for index, (novy_ukol, popis_ukolu) in enumerate(ukoly, start=1):
                     print(f"{index}. {novy_ukol}: {popis_ukolu}")
-                index_ukolu = int(input("Zadejte číslo úkolu, který chcete odstranit: ")) - 1
-                if 0 <= index_ukolu < len(ukoly):
-                    odstraneny_ukol = ukoly.pop(index_ukolu)
-                    print(f"Úkol '{odstraneny_ukol[0]}' byl odstraněn.")
-                else:
-                    print("Neplatné číslo úkolu.")
-#            else:
-#                print("Žádné úkoly k odstranění.")
+
+                while True:
+                    vstup=input("Zadejte číslo úkolu, který chcete odstranit: ").strip()
+                    
+                    if not vstup:
+                        print("Chyba: Zadejte číslo úkolu.")
+                        continue
+
+                    if not vstup.isdigit():
+                        print("Chyba: Zadejte platné číslo.")
+                        continue
+                    
+                    index_ukolu = int(vstup) - 1
+
+                    if 0 <= index_ukolu < len(ukoly):
+                        odstraneny_ukol = ukoly.pop(index_ukolu)
+                        print(f"Úkol '{odstraneny_ukol[0]}' byl odstraněn.")
+                        break
+                    else:
+                        print("Neplatné číslo úkolu. Zkuste to znovu.")
+            else:
+                print("Žádné úkoly k odstranění.")   
 
         elif volba == '4':
             print("Konec programu.")
