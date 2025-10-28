@@ -34,7 +34,7 @@ def hlavni_menu():
             ukoly.append((novy_ukol, popis_ukolu))
             print(f"Úkol '{novy_ukol}' byl přidán.")
             
-
+# volba 2 zobrazení všech úkolů
         elif volba == '2':
             if ukoly:
                 print("Seznam úkolů:")
@@ -43,7 +43,7 @@ def hlavni_menu():
             else:
                 print("Žádné úkoly k zobrazení.")
 
-
+# volba 3 odstranění úkolu
         elif volba == '3':
             if ukoly:
                 print("Seznam úkolů:")
@@ -72,6 +72,7 @@ def hlavni_menu():
             else:
                 print("Žádné úkoly k odstranění.")   
 
+# volba 4 konec programu
         elif volba == '4':
             print("Konec programu.")
             break
