@@ -17,4 +17,4 @@ def pridat_ukol(ukoly):
         break
 
     ukoly.append({"nazev": nazev, "popis": popis})
-    print(f"✅ Úkol '{nazev}' byl úspěšně přidán.")
+    print(f"Úkol '{nazev}' byl úspěšně přidán.")

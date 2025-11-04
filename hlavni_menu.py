@@ -9,7 +9,7 @@ ukoly = []
 def hlavni_menu():
     #Zobrazí hlavní menu a volá příslušné funkce.
     while True:
-        print("\n📘 Správce úkolů")
+        print("\n Správce úkolů")
         print("1. Přidat nový úkol")
         print("2. Zobrazit všechny úkoly")
         print("3. Odstranit úkol")
