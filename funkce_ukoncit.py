@@ -1,4 +1,4 @@
 def ukoncit_program():
 #Ukončí program
-    print("Konec programu. Na shledanou!")
+    print("Konec programu.")
     exit()
