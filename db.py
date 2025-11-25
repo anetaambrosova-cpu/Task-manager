@@ -6,7 +6,7 @@ def pripojeni_db():
             host="localhost",
             user="root",           
             password="dastynek678",
-            database="ukoly_db"
+            database="ukoly_db_test"
         )
         cursor = conn.cursor(dictionary=True)
         print("Připojení k databázi proběhlo úspěšně.")
