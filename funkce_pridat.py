@@ -1,6 +1,13 @@
-ukoly = []
+from db import pripojeni_db
 
-def pridat_ukol(ukoly):
+
+def pridat_ukol():
+
+    conn, cursor = pripojeni_db()
+    if conn is None:
+        print("Nelze přidat úkol – připojení k DB selhalo.")
+        return
+
     #Přidá nový úkol do seznamu.
     while True:
         nazev = input("Zadejte název úkolu: ").strip()
@@ -16,5 +23,13 @@ def pridat_ukol(ukoly):
             continue
         break
 
-    ukoly.append({"nazev": nazev, "popis": popis})
-    print(f"Úkol '{nazev}' byl úspěšně přidán.")
+    try:
+        sql = "INSERT INTO ukoly (nazev, popis, stav) VALUES (%s, %s, %s)"
+        cursor.execute(sql, (nazev, popis, 'nezahájeno'))
+        conn.commit()
+        print(f"Úkol '{nazev}' byl úspěšně přidán do databáze.")
+    except Exception as e:
+        print("Chyba při přidávání úkolu do DB:", e)
+    finally:
+        cursor.close()
+        conn.close()
